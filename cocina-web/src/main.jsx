@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App.jsx'
 import DashboardLayout from './DashboardLayout.jsx'
-import MonitorCocina from './MonitorCocina.jsx' // <--- IMPORTANTE: Importar el nuevo archivo
+import MonitorCocina from './MonitorCocina.jsx'
 
-// Componentes placeholder para las otras secciones (las haremos después)
+// Componentes placeholder para las otras secciones
 const MenuGestion = () => <h1 style={{color:'white'}}>🚧 Gestión del Menú</h1>
 const Historial = () => <h1 style={{color:'white'}}>🚧 Historial de Pedidos</h1>
+
+// Nuevo componente Inicio para la ruta principal del dashboard
+const Inicio = () => (
+  <div style={{ padding: 8 }}>
+    <h2 style={{ margin: 0 }}>Inicio</h2>
+    <p style={{ marginTop: 8, color: "rgba(0,0,0,.55)" }}>
+      Selecciona un módulo del menú.
+    </p>
+  </div>
+);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,8 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         
         {/* Rutas del Dashboard */}
         <Route path="/dashboard" element={<DashboardLayout />}>
-          {/* Aquí cargamos el MonitorCocina por defecto (index) */}
-          <Route index element={<MonitorCocina />} />
+          {/* Ahora el index muestra el componente Inicio en lugar de MonitorCocina */}
+          <Route index element={<Inicio />} />
           <Route path="menu" element={<MenuGestion />} />
           <Route path="historial" element={<Historial />} />
         </Route>

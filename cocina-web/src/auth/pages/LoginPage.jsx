@@ -2,15 +2,35 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
 
+/**
+ * LoginPage (UI + llamada al backend)
+ * -------------------------------------------------------
+ * - Diseñado para combinar con el dashboard (tema azul ERP).
+ * - Llama al endpoint: https://localhost:7042/api/Auth/login
+ * - Maneja mensajes (info / ok / error).
+ * - Incluye "ojo" para mostrar/ocultar contraseña.
+ *
+ * Nota: En esta etapa no se guarda JWT ni sesión; eso se integra después
+ * cuando el backend emita token (JWT) y el frontend lo persista.
+ */
 export default function LoginPage() {
+  // Estado de campos del formulario
   const [usuario, setUsuario] = useState("");
   const [contrasena, setContrasena] = useState("");
+
+  // Mensajes de estado para el usuario (feedback)
   const [mensaje, setMensaje] = useState(null);
-  // A) Nuevo estado para mostrar/ocultar contraseña
+
+  // Mostrar/ocultar contraseña
   const [verContrasena, setVerContrasena] = useState(false);
 
   const navigate = useNavigate();
 
+  /**
+   * Envía las credenciales al backend.
+   * - Si el backend responde OK, redirige a /dashboard.
+   * - Si falla, muestra mensaje controlado.
+   */
   const handleLogin = async (e) => {
     e.preventDefault();
     setMensaje({ texto: "Validando credenciales...", tipo: "info" });
@@ -27,7 +47,9 @@ export default function LoginPage() {
         return;
       }
 
+      // Leemos la respuesta por compatibilidad (luego aquí guardaremos token)
       await resp.json();
+
       setMensaje({ texto: "Acceso correcto.", tipo: "ok" });
       setTimeout(() => navigate("/dashboard"), 400);
     } catch {
@@ -38,21 +60,23 @@ export default function LoginPage() {
   return (
     <div className="si-bg">
       <div className="si-wrap">
-        {/* LOGO (SI fino + barra + COCINA) */}
-        <div className="si-logo">
-          <div className="si-monogram" aria-label="SI Cocina">
+        {/* Logo (monograma SI + COCINA). Mantiene identidad y combina con tema claro */}
+        <div className="si-logo" aria-label="SI Cocina">
+          <div className="si-monogram">
             <span className="si-letter si-s">S</span>
             <span className="si-letter si-i">I</span>
-            <span className="si-bar" aria-hidden="true"></span>
+            <span className="si-bar" aria-hidden="true" />
           </div>
           <div className="si-cocina">COCINA</div>
         </div>
 
+        {/* Card del login */}
         <div className="si-card">
-          <h1 className="si-title">Bienvenido</h1>
+          <h1 className="si-title">BIENVENIDO</h1>
           <p className="si-subtitle">Ingresa a tu cuenta</p>
 
           <form onSubmit={handleLogin} className="si-form">
+            {/* Usuario */}
             <div className="si-field">
               <label className="si-label">Usuario</label>
               <div className="si-input">
@@ -67,7 +91,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* B) Nuevo bloque de contraseña con botón ojo */}
+            {/* Contraseña + ojo */}
             <div className="si-field">
               <label className="si-label">Contraseña</label>
               <div className="si-input si-input-pass">
@@ -93,6 +117,7 @@ export default function LoginPage() {
               </div>
             </div>
 
+            {/* Recordar + link */}
             <div className="si-row">
               <label className="si-check">
                 <input type="checkbox" />
@@ -104,10 +129,12 @@ export default function LoginPage() {
               </a>
             </div>
 
+            {/* Botón principal */}
             <button type="submit" className="si-btn">
               Iniciar Sesión
             </button>
 
+            {/* Enlace inferior */}
             <div className="si-bottom">
               <span>¿No tienes cuenta?</span>
               <a className="si-link" href="#">
@@ -115,15 +142,13 @@ export default function LoginPage() {
               </a>
             </div>
 
-            {mensaje && (
-              <div className={`si-msg ${mensaje.tipo}`}>{mensaje.texto}</div>
-            )}
+            {/* Mensajes */}
+            {mensaje && <div className={`si-msg ${mensaje.tipo}`}>{mensaje.texto}</div>}
           </form>
         </div>
 
-        <div className="si-footer">
-          © 2026 SI Cocina - Todos los derechos reservados
-        </div>
+        {/* Footer */}
+        <div className="si-footer">© 2026 SI Cocina - Todos los derechos reservados</div>
       </div>
     </div>
   );
