@@ -1,0 +1,244 @@
+/* =========================================================
+   Login CSS - Tema Azul ERP (combina con dashboard)
+   Ubicación: src/auth/styles/login.css
+   - Fondo claro con degradados azules.
+   - Card blanca estilo corporativo.
+   - Links/focus/botón con el mismo azul del dashboard.
+   ========================================================= */
+
+/* Tipografías: Cinzel (serif elegante) + Inter (UI moderna) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Fondo alineado al dashboard (azul + gris claro) */
+.si-bg{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+
+  background:
+    radial-gradient(900px 600px at 20% 25%, rgba(11, 77, 184, .18), transparent 60%),
+    radial-gradient(900px 600px at 80% 20%, rgba(47, 123, 229, .14), transparent 62%),
+    linear-gradient(135deg, #f4f6f9 0%, #eef2f7 45%, #f4f6f9 100%);
+}
+
+/* Contenedor */
+.si-wrap{
+  width: 430px;
+  max-width: 96vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Logo */
+.si-logo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+/* Monograma */
+.si-monogram{
+  position: relative;
+  height: 62px;
+  width: 120px;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 12px 26px rgba(0,0,0,.20));
+}
+
+.si-letter{
+  position: absolute;
+  top: 0;
+  font-family: Cinzel, Georgia, "Times New Roman", Times, serif;
+  font-weight: 500;
+  font-size: 58px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+/* En fondo claro, el blanco pierde contraste: usamos un negro elegante */
+.si-s{ left: 16px; color: #1b1b1b; }
+.si-i{ left: 52px; color: #f0c21a; }
+
+.si-bar{
+  position: absolute;
+  right: 18px;
+  top: 8px;
+  width: 2px;
+  height: 48px;
+  background: rgba(0,0,0,.45);
+  border-radius: 1px;
+}
+
+.si-cocina{
+  margin-top: 8px;
+  font-family: Cinzel, Georgia, "Times New Roman", Times, serif;
+  font-size: 12px;
+  letter-spacing: .42em;
+  color: rgba(0,0,0,.70);
+}
+
+/* Card */
+.si-card{
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 18px 55px rgba(0,0,0,.15);
+  padding: 26px 26px 18px;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+.si-title{
+  text-align: center;
+  font-family: Cinzel, Georgia, "Times New Roman", Times, serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: rgba(0,0,0,.85);
+  margin-bottom: 6px;
+  letter-spacing: .06em;
+}
+
+.si-subtitle{
+  text-align: center;
+  font-size: 13px;
+  color: rgba(0,0,0,.55);
+  margin-bottom: 22px;
+}
+
+/* Form */
+.si-form{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.si-field{ display: flex; flex-direction: column; gap: 8px; }
+
+.si-label{
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(0,0,0,.70);
+}
+
+/* Input group */
+.si-input{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fbfbfb;
+  border: 1px solid rgba(0,0,0,.16);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.si-icon{ opacity: .55; }
+
+.si-input input{
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: rgba(0,0,0,.85);
+}
+
+/* Focus azul (misma familia del dashboard) */
+.si-input:focus-within{
+  border-color: rgba(11, 77, 184, .45);
+  box-shadow: 0 0 0 3px rgba(11, 77, 184, .10);
+}
+
+/* Ojo */
+.si-input-pass{ position: relative; }
+
+.si-eye{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 8px;
+  opacity: .75;
+  font-size: 16px;
+  line-height: 1;
+}
+.si-eye:hover{ opacity: 1; background: rgba(0,0,0,.04); }
+.si-eye:active{ transform: translateY(1px); }
+
+/* Row */
+.si-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.si-check{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+}
+.si-check input{ accent-color: #0b4db8; }
+
+/* Links azul dashboard */
+.si-link{
+  font-size: 12px;
+  font-weight: 700;
+  color: #0b4db8;
+  text-decoration: none;
+}
+.si-link:hover{ text-decoration: underline; }
+
+/* Botón azul dashboard */
+.si-btn{
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-weight: 800;
+  color: #fff;
+
+  background: linear-gradient(180deg, #0b4db8 0%, #0a3f99 100%);
+  box-shadow: 0 10px 20px rgba(11,77,184,.18);
+}
+.si-btn:hover{ filter: brightness(1.03); }
+
+/* Bottom */
+.si-bottom{
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(0,0,0,.55);
+}
+
+/* Mensajes */
+.si-msg{
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.06);
+}
+.si-msg.info{ background: rgba(30,90,200,.08); color: #1f3a6a; }
+.si-msg.ok{ background: rgba(30,120,60,.10); color: #1f5b3a; }
+.si-msg.error{ background: rgba(200,30,30,.08); color: #7a1f1f; }
+
+/* Footer */
+.si-footer{
+  margin-top: 14px;
+  font-size: 11px;
+  color: rgba(0,0,0,.60);
+  text-align: center;
+}

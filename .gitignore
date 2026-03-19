@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -22,3 +23,28 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+=======
+# Visual Studio / .NET
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# Node / React
+**/node_modules/
+**/dist/
+**/.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (si aplica)
+appsettings.Development.json
+>>>>>>> fe14dea717bdb9afae65296aac5cbf2c2333bbbe
