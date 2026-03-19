@@ -1,0 +1,80 @@
+﻿.public-menu-shell{
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+  padding: 24px;
+  color: #fff;
+}
+
+.public-menu-box{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.public-menu-header h2{
+  margin: 0;
+  font-size: 32px;
+}
+
+.public-menu-header p{
+  margin: 8px 0 0;
+  color: rgba(255,255,255,.86);
+}
+
+.public-menu-grid{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.public-menu-card{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.public-menu-card h3{
+  margin: 0;
+  font-size: 18px;
+}
+
+.public-menu-card img,
+.public-photo-empty{
+  margin-top: 10px;
+  width: 100%;
+  max-width: 320px;
+  height: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+}
+
+.public-photo-empty{
+  display: grid;
+  place-items: center;
+  color: rgba(255,255,255,.7);
+}
+
+.public-menu-card h4{
+  margin: 12px 0 0;
+  font-size: 20px;
+}
+
+.public-menu-card p{
+  margin: 8px 0 0;
+  color: rgba(255,255,255,.88);
+  line-height: 1.4;
+}
+
+@media (max-width: 860px){
+  .public-menu-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .public-menu-header h2{
+    font-size: 26px;
+  }
+}
+
